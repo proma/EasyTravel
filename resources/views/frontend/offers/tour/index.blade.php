@@ -176,6 +176,9 @@
                                 <label for="tt_class">Train Ticket Class</label>
                                 <select class="form-control" name="tt_class" id="tt_class">
                                     <option selected>Select Class</option>
+                                    @foreach ($categories as $categorie)
+                                        <option id="t_to" value="{{ $categorie->id }}">{{ $categorie->name }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>

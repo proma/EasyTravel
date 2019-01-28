@@ -17,6 +17,11 @@ class HomeController extends Controller
         return view('frontend.home.index');
     }
 
+    public function info()
+    {
+        return view('frontend.info.index');
+    }
+
     /**
      * Show the form for creating a new resource.
      *

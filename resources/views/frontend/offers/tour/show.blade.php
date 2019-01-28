@@ -30,7 +30,7 @@
     <section class="tourdetails">
         <div class="container">
             <div class="row tourdetailsrow">
-                <div class="col-md-4 offset-md-8">
+                {{-- <div class="col-md-4 offset-md-8">
                     <div class="row  animated bounceInLeft delay-2s">
                         <div class="col-md-2">
                             <div class="edit-button">
@@ -43,7 +43,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
                 <div class="col-md-12  animated bounceInRight delay-2s">
                     <div class="row">
                         @foreach($tour as $tor)
@@ -79,7 +79,7 @@
                                 </p>
                                 <p class="user_passportno">
                                     <b>Passport No: </b>
-                                    <span class="user_input_passportno">{{ $tor->passport_number }}></span>
+                                    <span class="user_input_passportno">{{ $tor->passport_number }}</span>
                                 </p>
                                 <p class="user_travelfrom">
                                     <b>Travel From: </b>
@@ -95,7 +95,7 @@
                                 </p>
                                 <p class="user_airticketclass">
                                     <b>Air Ticket Class: </b>
-                                    <span class="user_input_airticketclass">{{ $tor->at_class }}</span>
+                                    <span class="user_input_airticketclass">{{ \App\Models\TicketClass\TicketClass::find(4)->name }}</span>
                                 </p>
                                 <p class="user_trainticketno">
                                     <b>How many train ticket?: </b>
@@ -103,7 +103,7 @@
                                 </p>
                                 <p class="user_trainticketclass">
                                     <b>Train Ticket Class: </b>
-                                    <span class="user_input_trainticketclass">{{ $tor->tt_class }}</span>
+                                    <span class="user_input_trainticketclass">{{ App\Models\TicketClass\TicketClass::find(3)->name }}</span>
                                 </p>
                                 <p class="user_hotelroomselect">
                                     <b>Selected Room: </b>
@@ -115,7 +115,7 @@
                                 </p>
                                 <p class="user_whichhotel">
                                     <b>Which Hotel?: </b>
-                                    <span class="user_input_whichhotel">{{ $tor->hotel_id }}</span>
+                                    <span class="user_input_whichhotel">{{ \App\Models\Hotel\Hotel::find($tor->hotel_id)->name }}</span>
                                 </p>
                                 <p class="user_hotelcheckin">
                                     <b>Hotel Check In: </b>
@@ -125,6 +125,10 @@
                                     <b>Hotel Check Out: </b>
                                     <span class="user_input_hotelcheckout">{{ $tor->check_out }}</span>
                                 </p>
+                                <p class="user_totalcosting">
+                                    <b>Total Cost: </b>
+                                    <span class="user_totalcosting_amount">{{ $tor->at_number*5500 + $tor->tt_number*1120 }}</span>
+                                </p>
                             </div>
                         </div>
                         @endforeach
@@ -132,7 +136,7 @@
                     <div class="row">
                         <div class="col">
                             <div class="final-next-button text-center">
-                                <button type="submit" class="btn hvr-outline-out">Next</button>
+                            <a href="{{Route('info')}}"><button type="submit" class="btn btn-submit hvr-outline-out">Next</button></a>
                             </div>
                         </div>
                     </div>

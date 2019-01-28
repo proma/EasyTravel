@@ -65,13 +65,6 @@ class TourController extends Controller
             'traveler_number'  =>  'required|integer',
             'from'  =>  'required',
             'to'  =>  'required',
-            'at_number'  =>  'integer',
-            'at_class'  =>  'string',
-            'tt_number'  =>  'integer',
-            'tt_class'  =>  'integer',
-            'roomtype'  =>  'integer',
-            'hotel_id'  =>  'integer',
-            'needed_room'  =>  'integer',
             'present_address'  =>  'required|string'
         ));
 
@@ -89,8 +82,9 @@ class TourController extends Controller
         $tour->from=$request->from;
         $tour->to=$request->to;
         $tour->at_number=$request->at_number;
+        $tour->at_class=$request->at_class;
         $tour->tt_number=$request->tt_number;
-        $tour->tt_class=$request->tt_class;
+        $tour->tt_class=(int)$request->tt_class;
         $tour->roomtype=$request->roomtype;
         $tour->hotel_id=$request->hotel_id;
         $tour->needed_room=$request->needed_room;
