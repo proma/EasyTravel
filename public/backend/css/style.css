@@ -1,0 +1,145 @@
+::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
+
+  .card-header{
+      color: #000;
+  }
+
+  /* form-control */
+  .card .input-group-text {
+    color: #fff;
+    background-color: #000;
+    border: 1px solid #000;
+    border-radius: 20px;
+}
+
+  .card .form-control{
+    color: #000;
+    background-color: #fff;
+    border: 1px solid #000;
+    border-radius: 20px;
+  }
+  .card .custom-select {
+    color: #000;
+    border: 1px solid #000;
+    border-radius: 20px;
+}
+  /* form-control */
+
+  /* ---------------------btn------------------------ */
+.btn{
+    width: auto;
+  }
+  /* Grow Shadow */
+.btn {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px transparent;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: box-shadow, transform;
+    transition-property: box-shadow, transform;
+  }
+ .btn:hover, .btn:focus, .btn:active {
+    box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+
+  .card-footer .btn{
+      background: #000;
+      color: #fff;
+  }
+  /* -------------------------btn---------------------- */
+
+  .login-logo img {
+    width: 215px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+.card-footer{
+    padding: 0.5rem 1rem;
+}
+/* -------------------------------- Login Body ------------------------------------- */
+.login-body{
+    background-image: url("/backend/images/b1.jpg");
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+/* -------------------------------- Login Body ------------------------------------- */
+
+
+/* -------------------------------- login card ------------------------------------- */
+.login-card .card{
+    background: rgba(0,0,0,0.5);
+    color: #fff;
+}
+
+.login-card .card .card-header{
+    background: transparent;
+    border-bottom: 1px solid #fff;
+    color: #fff;
+}
+
+.login-card .card .card-footer{
+    background: transparent;
+    border: none;
+}
+
+.login-card .form-control{
+    color: #fff;
+    background-color: rgba(0,0,0,0.2);
+    /* border-radius: 50px; */
+    border-left: none;
+    border-right: none;
+    border-top: none;
+}
+.login-card .form-control:focus{
+	background-color: transparent;
+	color: #ffffff;
+}
+
+.login-card .input-group-text {
+    color: #fff;
+    background-color: rgba(0,0,0,0.9);
+    border: 1px solid #ced4da;
+    border-radius: 36px;
+}
+
+.login-card .login-btn .btn,  .login-card .register-btn .btn {
+    color: #000;
+    background-color:#fff;
+    border: 1px solid #fff;
+    border-radius: 36px;
+    width: 100%;
+}
+
+/* -------------------------------- login card ------------------------------------- */ 
+
+/* -------------------------------- top nav logo ------------------------------------- */ 
+.navbar-brand img{
+    width: 138px;
+}
+/* -------------------------------- top nav logo ------------------------------------- */ 
+
