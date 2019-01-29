@@ -27,14 +27,42 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                       <ul class="list-group list-group-flush">
-                        <li class="list-group-item">By Bikash : 01782701216</li>
-                        <li class="list-group-item">By DBBL Act : 323456545645</li>
-                        <li class="list-group-item">Contact with phone or email</li>
+                <div class="card">
+                    <!-- <div class="card-body">
+                       <ul class="">
+                        <li class="-group-item">By Bikash : 01782701216</li>
+                        <li class="-group-item">By DBBL Act : 323456545645</li>
+                        <li class="-group-item">Contact with phone or email</li>
                         </ul>
-                    </div>
+                    </div> -->
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">No</th>
+                                <th scope="col">Payment Sector</th>
+                                <th scope="col">A/C No.</th>      
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Bikash</td>
+                                <td>01782701216</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>DBBL A/C</td>
+                                <td>5456454</td>
+                            </tr>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td>Others</td>
+                                <td>Phone or Email</td>
+                            </tr>
+                        </tbody>
+                    </table>
                     
                   </div>
             </div>

@@ -91,7 +91,6 @@ class TourController extends Controller
         $tour->check_in=(string)$request->check_in;
         $tour->check_out=(string)$request->check_out;
         $tour->present_address=$request->present_address;
-
         $tour->save();
 
         return redirect()->Route('tour.show');
