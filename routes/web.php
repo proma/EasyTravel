@@ -46,6 +46,7 @@ Route::group([
     include_once 'admin/treatment.php';
     include_once 'admin/air.php';
     include_once 'admin/hotel.php';
+    include_once 'admin/hospital.php';
     include_once 'admin/train.php';
     include_once 'admin/state.php';
     include_once 'admin/hotelcost.php';

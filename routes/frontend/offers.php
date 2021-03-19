@@ -3,6 +3,7 @@ Route::group([
    // 'middleware' => 'auth',
     'namespace' => 'Frontend',
     'prefix' => 'offers'
-], function() {
+], 
+function() {
     Route::get('', ['uses' => 'OffersController@index', 'as' => 'offers']);
 });

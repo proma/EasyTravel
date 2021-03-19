@@ -35,12 +35,16 @@
                 </ul><!--/#portfolio-filter-->
                 
                 <div class="portfolio-items">
-                    <div class="col-sm-6 portfolio-item itreatment">
+                    @foreach ($offers as $offer)
+                    @php
+                        $type = ($offer->type == 'tour')? 'itour':'itreatment';
+                    @endphp
+                    <div class="col-sm-6 portfolio-item {{$type}}">
                         <div class="portfolio-wrapper">
                             <div class="portfolio-single">
                                 <div class="portfolio-thumb">
                                 <a href="#">
-                                        <img src="{{ asset('frontend/images/offer/air.jpg') }}" class="img-responsive" alt="">
+                                        <img src="{{ url(env('IMG_STORE', 'storage/').$offer->banner) }}" class="img-responsive" alt="">
                                     </a>
                                 </div>
                                 <div class="portfolio-view">
@@ -51,11 +55,12 @@
                                 </div>
                             </div>
                             <div class="portfolio-info">
-                                <h2>Air Tickets</h2>
+                                <h2>{{$offer->offerheading}}</h2>
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-6 portfolio-item itour">
+                    @endforeach
+                    {{-- <div class="col-sm-6 portfolio-item itour">
                         <div class="portfolio-wrapper">
                             <div class="portfolio-single">
                                 <div class="portfolio-thumb">
@@ -162,9 +167,9 @@
                                 <h2>Train</h2>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
-                <div class="portfolio-pagination">
+                {{--<div class="portfolio-pagination">
                     <ul class="pagination">
                       <li><a href="#">left</a></li>
                       <li><a href="#">1</a></li>
@@ -178,7 +183,7 @@
                       <li><a href="#">9</a></li>
                       <li><a href="#">right</a></li>
                     </ul>
-                </div>
+                </div>--}}
             </div>
         </div>
     </section>

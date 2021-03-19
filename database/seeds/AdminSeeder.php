@@ -16,7 +16,7 @@ class AdminSeeder extends Seeder
             'name' => 'Admin',
             'email' => 'admin@mail.com',
             'email_verified_at' => now(),
-            'password' => bcrypt('123456'),
+            'password' => bcrypt('12345678'),
         ]);
 
         // Ticket Type Row insert

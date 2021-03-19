@@ -13,13 +13,13 @@
         <div class="col-md-8 offset-2">
             <div class="card">
                 <div class="card-header">
-                    generate states
+                    generate city
                 </div>
                 <div class="card-body">
                     <form action="{{ route('admin.state.update',['id' => $state->id]) }}" method="POST">
                         @csrf
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control" name="state" placeholder="input state name" value="{{ $state->name }}">
+                            <input type="text" class="form-control" name="state" placeholder="input city name" value="{{ $state->name }}">
                         </div>
                         <button class="success" type="submit">submit</button>
                     </form>

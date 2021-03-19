@@ -37,7 +37,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="tclass_id">Ticket Class</label>
+                                    <label for="tclass_id">Room Type</label>
                                     <select id="tclass_id" name="room_cat_id" class="form-control">
                                         @foreach($rooms as $room)
                                         <option value="{{ $room->id }}">{{ $room->name }}</option>

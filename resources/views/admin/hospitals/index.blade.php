@@ -1,6 +1,6 @@
 @extends('layouts.backend')
 
-@section('page_title', '| hotels')
+@section('page_title', '| hospitals')
 
 @section('stylesheet')
     {{--  External CSS  --}}
@@ -13,16 +13,16 @@
         <div class="col-md-8 offset-2">
             <div class="card">
                 <div class="card-header">
-                    Generate Hotels
+                    Generate Hospitals
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('admin.hotel.store') }}" method="POST">
+                    <form action="{{ route('admin.hospitals.store') }}" method="POST">
                         @csrf
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                                <label class="input-group-text" for="inputGroupSelect01">Hotel Name</label>
+                                <label class="input-group-text" for="inputGroupSelect01">Hospital Name</label>
                             </div>
-                            <input type="text" class="form-control" name="name" placeholder="input Hotel name">
+                            <input type="text" class="form-control" name="name" placeholder="input Hospital name">
                         </div>
 
                         <div class="input-group mb-3">
@@ -51,14 +51,14 @@
 
             <div class="card">
                 <div class="card-header bg-light">
-                    <strong>Generated Hotels</strong>
+                    <strong>Generated Hospitals</strong>
     
                     <div class="card-actions">
                         {{-- <a href="#" class="btn">
                             <i class="fa fa-pencil-alt"></i>
                         </a> --}}
     
-                        <a href="{{Route('admin.hotel.index')}}" class="btn">
+                        <a href="{{Route('admin.hospitals.index')}}" class="btn">
                             <i class="fa fa-plus"></i>
                         </a>
                     </div>
@@ -74,18 +74,18 @@
                                 <th>Edit</th>
                                 <th>Delete</th>
                             </tr>
-                            @foreach ($hotels as $key => $hotel)
+                            @foreach ($hospitals as $key => $hospital)
                                 <tr>
                                     <td>{{ $key+1 }}</td>
-                                    <td>{{ $hotel->name}}</td>
-                                    <td>{{ \App\Models\State\State::find($hotel->state_id)->name  }}</td>
+                                    <td>{{ $hospital->name}}</td>
+                                    <td>{{ \App\Models\State\State::find($hospital->state_id)->name  }}</td>
                                     <td>
-                                        <a href="{{ route('admin.hotel.edit', ['id' => $hotel->id]) }}">
+                                        <a href="{{ route('admin.hospitals.edit', ['id' => $hospital->id]) }}">
                                             <i class="fa fa-pencil-alt"></i>
                                         </a>
                                     </td>
                                     <td>   
-                                        <a href="{{ route('admin.hotel.destroy', ['id' => $hotel->id]) }}">
+                                        <a href="{{ route('admin.hospitals.destroy', ['id' => $hospital->id]) }}">
                                             <i class="fa fa-trash"></i>
                                         </a>
                                     </td>

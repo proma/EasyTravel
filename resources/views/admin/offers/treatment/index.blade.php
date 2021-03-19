@@ -40,7 +40,7 @@
                             <i class="fa fa-pencil-alt"></i>
                         </a> --}}
     
-                        <a href="{{Route('admin.air.create')}}" class="btn">
+                        <a href="{{Route('admin.treatment.create')}}" class="btn">
                             <i class="fa fa-plus"></i>
                         </a>
                     </div>
@@ -51,19 +51,32 @@
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
-                                    <th>No</th>
-                                    <th>Name</th>
-                                    <th>Email</th>
-                                    <th>Mobile No</th>
+                                    <th>Heading</th>
+                                    <th>People</th>
+                                    <th>Hospital</th>
+                                    <th>Train From</th>
+                                    <th>Train to</th>
+                                    <th>Air From</th>
+                                    <th>Air to</th>
+                                    <th>Hotel</th>
+                                    <th>Days</th>
+                                    <th>Cost</th>
                                     <th class="action">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach($treatmentoffers as $key => $treatmentoffer)
                                 <tr>
-                                    <td>1</td>
-                                    <td>asdfghjk</td>
-                                    <td>asdf@mail.com</td>
-                                    <td>0156546454</td>
+                                    <td>{{ $treatmentoffer->offerheading }}</td>
+                                    <td>{{ $treatmentoffer->offertourpeople }}</td>
+                                    <td>{{ $treatmentoffer->hospital }}</td>
+                                    <td>{{ \App\Models\State\State::find($treatmentoffer->trainfrom)->name }}</td>
+                                    <td>{{ \App\Models\State\State::find($treatmentoffer->trainto)->name }}</td>
+                                    <td>{{ \App\Models\State\State::find($treatmentoffer->flightfrom)->name }}</td>
+                                    <td>{{ \App\Models\State\State::find($treatmentoffer->flightto)->name }}</td>
+                                    <td>{{ \App\Models\Hotel\Hotel::find($treatmentoffer->hotelname)->name }}</td>
+                                    <td>{{ $treatmentoffer->tourdays }}</td>
+                                    <td>{{ $treatmentoffer->tourcost }}</td>
                                     <td class="action">
                                         <a href="#" class="btn">
                                             <i class="fa fa-pencil-alt"></i>
@@ -74,6 +87,7 @@
                                         </a>
                                     </td>
                                 </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

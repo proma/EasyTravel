@@ -4,6 +4,13 @@ namespace App\Http\Controllers\Admin\Offer;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Travel\Travel;
+use App\Models\State\State;
+use App\Models\TicketClass\TicketClass;
+use App\Models\Hotel\Hotel;
+use App\Models\Hospital\Hospital;
+use App\Models\Offer\Offer;
+use App\Models\RoomCategory\RoomCategory;
 
 class TreatmentController extends Controller
 {
@@ -18,7 +25,8 @@ class TreatmentController extends Controller
      */
     public function index()
     {
-        return view('admin.offers.treatment.index');
+        $treatmentoffers = Offer::all();
+        return view('admin.offers.treatment.index')->withTreatmentoffers($treatmentoffers);
     }
 
     /**
@@ -28,7 +36,18 @@ class TreatmentController extends Controller
      */
     public function create()
     {
-        //
+        $states = State::all();
+        $ticketClasses = TicketClass::all();
+        $hotels = Hotel::all();
+        $hospitals = Hospital::all();
+        $rooms = RoomCategory::all();
+
+        return view('admin.offers.treatment.create')
+            ->withStates($states)
+            ->withTicketClasses($ticketClasses)
+            ->withHotels($hotels)
+            ->withHospitals($hospitals)
+            ->withRooms($rooms);
     }
 
     /**
@@ -39,32 +58,46 @@ class TreatmentController extends Controller
      */
     public function store(Request $request)
     {
+        
         $this->validate($request, array(
-            'name'  =>  'required|string',
-            'birthday'  =>  'required',
-            'email'  =>  'required|string',
-            'mobile'  =>  'required|string',
-            'passport_number'  =>  'required|string',
-            'blood_group'  =>  'required|string',
-            'traveler_number'  =>  'required|integer',
-            'treatmentWhichPlace'  =>  'string',
-            'treatmentHospital'  =>  'required|string',
-            'treatmentMedicalDepartment'  =>  'required|integer',
-            'treatmentPreferableDoctor'  =>  'required|string',
-            'from'  =>  'required|string',
-            'to'  =>  'required|string',
-
-            'at_number'  =>  'integer',
-            'at_class'  =>  'string',
-            'tt_number'  =>  'integer',
-            'tt_class'  =>  'string',
-            'roomtype'  =>  'string',
-            'hotel_id'  =>  'integer',
-            'needed_room'  =>  'integer',
-            'check_in'  =>  'required',
-            'check_out'  =>  'required',
-            'present_address'  =>  'required|string'
+            'offerheading' => 'required',
+            'banner' => 'required',
+            'hospital' => 'required',
+            'offertourpeople' => 'required',
+            'hotelname' => 'required',
+            'hotelroomtype' => 'required',
+            'tourdays' => 'required',
+            'tourcost' => 'required',
         ));
+      
+
+        $treatmentoffer = new Offer();
+        $treatmentoffer->type ='treatment';
+        $treatmentoffer->offerheading = $request->offerheading;
+        $treatmentoffer->hospital = $request->hospital;
+        $treatmentoffer->offertourpeople = $request->offertourpeople;
+        $treatmentoffer->trainfrom = $request->trainfrom;
+        $treatmentoffer->trainto = $request->trainto;
+        $treatmentoffer->trainclass = $request->trainclass;
+        $treatmentoffer->flightfrom = $request->flightfrom;
+        $treatmentoffer->flightto = $request->flightto;
+        $treatmentoffer->flightclass = $request->flightclass;
+        $treatmentoffer->hotelname = $request->hotelname;
+        $treatmentoffer->hotelroomtype = $request->hotelroomtype;
+        $treatmentoffer->tourdays = $request->tourdays;
+        $treatmentoffer->tourcost = $request->tourcost;
+
+        if($request->hasFile('banner')){
+
+            $this->validate($request, array(
+                "banner" => 'required | image | mimes:jpeg,png,jpg,gif,svg | max:2048',
+            ));
+
+            $treatmentoffer->banner = $request->file('banner')->store('TreatmentBanner', 'public');
+        }
+        $treatmentoffer->save();
+
+        return redirect()->route('admin.treatment.index');
     }
 
     /**

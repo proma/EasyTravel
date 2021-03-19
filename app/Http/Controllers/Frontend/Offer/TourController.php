@@ -25,6 +25,7 @@ class TourController extends Controller
      */
     public function index()
     {
+        
         $states = State::all();
         $categories = TicketClass::all();
         $rooms = RoomCategory::all();

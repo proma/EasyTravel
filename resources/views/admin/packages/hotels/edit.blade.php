@@ -28,7 +28,7 @@
                         </div>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                                <label class="input-group-text" for="inputGroupSelect01">State</label>
+                                <label class="input-group-text" for="inputGroupSelect01">City</label>
                             </div>
                             <select class="custom-select" name="state_id" id="inputGroupSelect01">
                                 <option selected>Choose...</option>

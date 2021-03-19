@@ -3,7 +3,8 @@ Route::group([
    'middleware' => 'auth',
     'namespace' => 'Frontend\Offer',
     'prefix' => 'offers/tour'
-], function() {
+], 
+function() {
     Route::get('', ['uses' => 'TourController@index', 'as' => 'tour']);
 
     Route::get('/create', ['uses' => 'TourController@create', 'as' => 'tour.create']);

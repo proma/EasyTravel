@@ -61,9 +61,9 @@
                             <tbody>
                                 @foreach($costs as $cost)
                                 <tr>
-                                    <td>{{ \App\Models\Hotel\Hotel::find($cost->hotel_id)->name }}</td>
-                                    <td>{{ \App\Models\State\State::find($cost->hotel_id)->name }}</td>
-                                    <td>{{ \App\Models\RoomCategory\RoomCategory::find($cost->room_cat_id)->name }}</td>
+                                    <td>{{ optional(\App\Models\Hotel\Hotel::find($cost->hotel_id))->name }}</td>
+                                    <td>{{ optional(\App\Models\State\State::find($cost->hotel_id))->name }}</td>
+                                    <td>{{ optional(\App\Models\RoomCategory\RoomCategory::find($cost->room_cat_id))->name }}</td>
                                     <td>{{ $cost->cost }}</td>
                                     <td class="action">
                                         <a href="{{ route('admin.hotelcost.edit', ['id' => $cost->id]) }}" class="btn">

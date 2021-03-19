@@ -13,13 +13,13 @@
         <div class="col-md-8 offset-2">
             <div class="card">
                 <div class="card-header">
-                    Generate States
+                    Input City
                 </div>
                 <div class="card-body">
                     <form action="{{ route('admin.state.store') }}" method="POST">
                         @csrf
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control" name="state" placeholder="input state name">
+                            <input type="text" class="form-control" name="state" placeholder="input city name">
                         </div>
                         <button class="btn btn-info" type="submit">submit</button>
                     </form>
@@ -36,7 +36,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header bg-light">
-                    <strong>Generated States</strong>
+                    <strong>City List</strong>
     
                     <div class="card-actions">
                         {{-- <a href="#" class="btn">
@@ -55,7 +55,7 @@
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>State Name</th>
+                                    <th>City Name</th>
                                     <th class="action">Edit</th>
                                     <th class="action">Delete</th>
                                 </tr>

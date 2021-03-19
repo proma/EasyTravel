@@ -40,7 +40,7 @@
                             <i class="fa fa-pencil-alt"></i>
                         </a> --}}
     
-                        <a href="{{Route('admin.air.create')}}" class="btn">
+                        <a href="{{route('admin.tour.create')}}" class="btn">
                             <i class="fa fa-plus"></i>
                         </a>
                     </div>
@@ -51,20 +51,32 @@
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
-                                    <th>No</th>
-                                    <th>Name</th>
-                                    <th>Email</th>
-                                    <th>Mobile No</th>
+                                    <th>Heading</th>
+                                    <th>City</th>
+                                    <th>People</th>
+                                    <th>Train From</th>
+                                    <th>Train to</th>
+                                    <th>Air From</th>
+                                    <th>Air to</th>
+                                    <th>Hotel</th>
+                                    <th>Days</th>
+                                    <th>Cost</th>
                                     <th class="action">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($travels as $key => $travel)
+                                @foreach($touroffers as $key => $touroffer)
                                 <tr>
-                                    <td>{{$key+1}}</td>
-                                    <td>{{ $travel->name }}</td>
-                                    <td>{{ $travel->email }}</td>
-                                    <td>{{ $travel->mobile }}</td>
+                                    <td>{{ $touroffer->offerheading }}</td>
+                                    <td>{{ $touroffer->vacationcity }}</td>
+                                    <td>{{ $touroffer->offertourpeople }}</td>
+                                    <td>{{ \App\Models\State\State::find($touroffer->trainfrom)->name }}</td>
+                                    <td>{{ \App\Models\State\State::find($touroffer->trainto)->name }}</td>
+                                    <td>{{ \App\Models\State\State::find($touroffer->flightfrom)->name }}</td>
+                                    <td>{{ \App\Models\State\State::find($touroffer->flightto)->name }}</td>
+                                    <td>{{ \App\Models\Hotel\Hotel::find($touroffer->hotelname)->name }}</td>
+                                    <td>{{ $touroffer->tourdays }}</td>
+                                    <td>{{ $touroffer->tourcost }}</td>
                                     <td class="action">
                                         <a href="#" class="btn">
                                             <i class="fa fa-pencil-alt"></i>

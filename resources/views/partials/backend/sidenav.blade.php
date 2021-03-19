@@ -70,6 +70,9 @@
                         <a href="{{ route('admin.hotel.index') }}" class="nav-link">
                             <i class="fas fa-map"></i> Control Hotel
                         </a>
+                        <a href="{{ route('admin.hospitals.index') }}" class="nav-link">
+                            <i class="fas fa-map"></i> Control Hospital
+                        </a>
                     </li>
                 </ul>
             </li>

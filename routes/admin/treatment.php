@@ -5,7 +5,7 @@
 Route::group([
    // 'middleware' => 'auth',
     'namespace' => 'Admin\Offer',
-    'prefix' => 'admin/offer/Treatment'
+    'prefix' => 'admin/offer/treatment'
 
 ], function() {
     
