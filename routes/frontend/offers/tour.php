@@ -5,7 +5,7 @@ Route::group([
     'prefix' => 'offers/tour'
 ], 
 function() {
-    Route::get('', ['uses' => 'TourController@index', 'as' => 'tour']);
+    Route::get('/index/{id}', ['uses' => 'TourController@index', 'as' => 'tour']);
 
     Route::get('/create', ['uses' => 'TourController@create', 'as' => 'tour.create']);
 

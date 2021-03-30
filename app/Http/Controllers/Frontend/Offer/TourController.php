@@ -14,6 +14,7 @@ use App\Models\HotelCost\HotelCost;
 use App\Models\Air\Air;
 use App\Models\Train\Train;
 use App\Models\Travel\Travel;
+use App\Models\Offer\Offer;
 use Auth;
 
 class TourController extends Controller
@@ -23,19 +24,12 @@ class TourController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        
-        $states = State::all();
-        $categories = TicketClass::all();
-        $rooms = RoomCategory::all();
-        $hotels = Hotel::all();
+        $offer = Offer::find($id);
 
         return view('frontend.offers.tour.index')
-            ->withStates($states)
-            ->withCategories($categories)
-            ->withRooms($rooms)
-            ->withHotels($hotels);
+            ->withOffer($offer);
     }
 
     /**
@@ -45,7 +39,17 @@ class TourController extends Controller
      */
     public function create()
     {
-        //
+        
+        $states = State::all();
+        $categories = TicketClass::all();
+        $rooms = RoomCategory::all();
+        $hotels = Hotel::all();
+
+        return view('frontend.offers.tour.create')
+            ->withStates($states)
+            ->withCategories($categories)
+            ->withRooms($rooms)
+            ->withHotels($hotels);
     }
 
     /**

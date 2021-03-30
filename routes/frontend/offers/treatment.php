@@ -2,15 +2,16 @@
 Route::group([
    'middleware' => 'auth',
     'namespace' => 'Frontend\Offer',
-    'prefix' => 'offers'
-], function() {
-    Route::get('/treatment', ['uses' => 'TreatmentController@index', 'as' => 'treatment']);
+    'prefix' => 'offers/treatment'
+], 
+function() {
+    Route::get('/index/{id}', ['uses' => 'TreatmentController@index', 'as' => 'treatment']);
 
     Route::get('/create', ['uses' => 'TreatmentController@create', 'as' => 'treatment.create']);
 
     Route::post('', ['uses' => 'TreatmentController@store', 'as' => 'treatment.store']);
 
-    Route::get('/show/{id}', ['uses' => 'TreatmentController@show', 'as' => 'treatment.show']);
+    Route::get('/show', ['uses' => 'TreatmentController@show', 'as' => 'treatment.show']);
 
     Route::get('/edit/{id}', ['uses' => 'TreatmentController@edit', 'as' => 'treatment.edit']);
 

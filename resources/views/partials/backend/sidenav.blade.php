@@ -9,6 +9,12 @@
                 </a>
             </li>
 
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="fas fa-box-open"></i> Customers Offer
+                </a>
+            </li>
+
             <li class="nav-item nav-dropdown">
                 <a href="#" class="nav-link nav-dropdown-toggle">
                     <i class="icon icon-grid"></i> Packages <i class="fa fa-caret-left"></i>

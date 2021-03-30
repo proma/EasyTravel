@@ -49,7 +49,12 @@
                                 </div>
                                 <div class="portfolio-view">
                                     <ul class="nav nav-pills">
-                                        <li><a href="{{Route('treatment')}}"><i class="fa fa-link"></i></a></li>
+                                        @if($type == 'itour')
+                                            <li><a href="{{Route('tour', ['id' => $offer->id])}}"><i class="fa fa-link"></i></a></li>
+                                        @else
+                                            <li><a href="{{Route('treatment', ['id' => $offer->id])}}"><i class="fa fa-link"></i></a></li>
+                                        @endif
+                                        
                                         <li><a href="images/portfolio/18.jpg" data-lightbox="example-set"><i class="fa fa-eye"></i></a></li>
                                     </ul>
                                 </div>
@@ -169,7 +174,7 @@
                         </div>
                     </div> --}}
                 </div>
-                {{--<div class="portfolio-pagination">
+                <div class="portfolio-pagination">
                     <ul class="pagination">
                       <li><a href="#">left</a></li>
                       <li><a href="#">1</a></li>
@@ -183,7 +188,7 @@
                       <li><a href="#">9</a></li>
                       <li><a href="#">right</a></li>
                     </ul>
-                </div>--}}
+                </div>
             </div>
         </div>
     </section>

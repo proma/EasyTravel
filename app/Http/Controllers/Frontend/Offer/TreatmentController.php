@@ -16,6 +16,7 @@ use App\Models\HotelCost\HotelCost;
 use App\Models\Air\Air;
 use App\Models\Train\Train;
 use App\Models\Travel\Travel;
+use App\Models\Offer\Offer;
 use Auth;
 
 class TreatmentController extends Controller
@@ -25,22 +26,13 @@ class TreatmentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        $states = State::all();
-        $categories = TicketClass::all();
-        $rooms = RoomCategory::all();
-        $hotels = Hotel::all();
-        $hospitals = Hospital::all();
-        $doctors = Doctor::all();
+        $treatmentoffer = Offer::find($id);
+        
 
         return view('frontend.offers.treatment.index')
-            ->withStates($states)
-            ->withCategories($categories)
-            ->withRooms($rooms)
-            ->withHotels($hotels)
-            ->withHospitals($hospitals)
-            ->withDoctors($doctors);
+            ->withTreatmentoffer($treatmentoffer);
         
     }
 
@@ -51,7 +43,21 @@ class TreatmentController extends Controller
      */
     public function create()
     {
-        //
+        
+        $states = State::all();
+        $categories = TicketClass::all();
+        $rooms = RoomCategory::all();
+        $hotels = Hotel::all();
+        $hospitals = Hospital::all();
+        $ticketClasses = TicketClass::all();
+
+        return view('frontend.offers.treatment.create')
+            ->withStates($states)
+            ->withRooms($rooms)
+            ->withCategories($categories)
+            ->withHotels($hotels)
+            ->withHospitals($hospitals)
+            ->withTicketClasses($ticketClasses);
     }
 
     /**
@@ -64,7 +70,7 @@ class TreatmentController extends Controller
      {
          $this->validate($request, array(
              'name'  =>  'required|string',
-             'birthday'  =>  'required',
+             'birthday'  =>  'required|string',
              'email'  =>  'required|string',
              'mobile'  =>  'required|string',
              'passport_number'  =>  'required|string',
@@ -126,9 +132,10 @@ class TreatmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+        $treatment=Treatment::where('user_id',Auth::user()->id)->get();
+        return view('frontend.offers.treatment.show')->withTreatment($treatment);
     }
 
     /**
@@ -163,5 +170,25 @@ class TreatmentController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function airSelection($from, $to){
+        $ticketClasses = Air::with(['roomcategory'])->where('from', $from)->where('to', $to)->get();
+
+        return response()->json($ticketClasses);
+    }
+
+    public function trainSelection($from, $to){
+        $ticketClasses = Train::where('from', $from)->where('to', $to)->get();
+
+        return response()->json($ticketClasses);
+    }
+    public function hotelSelection($id){
+        $data = HotelCost::where('room_cat_id', $id)->get();
+
+        return response()->json($data);
+    }
+    public function gethotel($id){
+        $data = Hotel::find($id);
+        return response()->json($data);
     }
 }

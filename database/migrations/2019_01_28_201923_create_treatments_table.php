@@ -20,7 +20,8 @@ class CreateTreatmentsTable extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
             $table->string('name', 20);
-            $table->date('birthday');
+            // $table->date('birthday');
+            $table->string('birthday');
             $table->string('email');
             $table->string('mobile', 15);
             $table->string('blood_group', 5);
@@ -58,8 +59,11 @@ class CreateTreatmentsTable extends Migration
             $table->foreign('hotel_id')->references('id')->on('hotels')->onDelete('cascade');
 
             $table->integer('needed_room')->nullable();
-            $table->date('check_in')->nullable();
-            $table->date('check_out')->nullable();
+            // $table->date('check_in')->nullable();
+            // $table->date('check_out')->nullable();
+            $table->string('check_in')->nullable();
+            $table->string('check_out')->nullable();
+
 
             $table->timestamps();
             $table->softDeletes();
