@@ -32,13 +32,13 @@
             <form action="{{ route('treatment.store') }}" method="POST">
             @csrf
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-6">
                         <div class="form-group">
                             <label for="name">Full Name</label>
                             <input type="text" name="name" class="form-control" id="name" placeholder="Full Name" required>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                         <div class="form-group date" data-provide="datepicker">
                             <label for="tourBirthDay">Birthday</label>
                             <input id="tourBirthDay" name="birthday" type="text" class="form-control" placeholder="dd/mm/yyyy" required>
@@ -56,16 +56,14 @@
                             <input type="text" name="mobile" class="form-control" id="mobile" placeholder="Mobile" required>
                         </div>
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-md-4">
                         <div class="form-group">
                             <label for="passport_number">NID No.</label>
                             <input type="text" name="passport_number" class="form-control" id="passport_number" placeholder="Passport No." required>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <div class="form-group">
-                            {{-- <label for="blood_group">Blood Group</label>
-                            <input type="text" name="blood_group" class="form-control" id="blood_group" placeholder="Blood Group" required> --}}
                             <label for="blood_group">Blood Group</label>
                             <select class="form-control" name="blood_group" id="blood_group" placeholder="Blood Group" required>
                                 <option selected></option>
@@ -80,47 +78,17 @@
                             </select>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    
+                    <div class="col-md-4">
                         <div class="form-group">
                             <label for="traveler_number">Total Traveler</label>
                             <input type="text" name="traveler_number" class="form-control" id="traveler_number" placeholder="Total Traveler" required>
                         </div>
                     </div>
-                    {{-- <div class="col-md-3">
-                        <div class="form-group" >
-                            <label for="from">Travel From</label>
-                            <select class="form-control" name="from" id="from">
-                                <option selected>Select</option>
-                                <option value="Dhaka">Dhaka</option>
-                                <option value="Sylhet">Sylhet</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group" >
-                            <label for="to">Travel To</label>
-                            <select class="form-control" name="to" id="to">
-                                <option selected>Select</option>
-                                <option value="Dhaka">Dhaka</option>
-                                <option value="Sylhet">Sylhet</option>
-                            </select>
-                        </div>
-                    </div> --}}
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="treatmentWhichPlace">Which Place?</label>
-                            <select class="form-control" name="state_id" id="treatmentWhichPlace">
-                                <option selected>Select</option>
-                                @foreach($states as $state)
-                                    <option id="t_to" value="{{ $state->id }}">{{ $state->name }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <div class="form-group" id="">
                             <label for="treatmenthospital">Hospitals</label>
-                            <select class="form-control" name="state_id" id="treatmentWhichPlace">
+                            <select class="form-control" name="hospital_id" id="treatmenthospital">
                                 <option selected>Select</option>
                                 @foreach($hospitals as $hospital)
                                     <option id="hospital" value="{{ $hospital->id }}">{{ $hospital->name }}</option>
@@ -128,42 +96,8 @@
                             </select>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="treatmentMedicalDepartment">Medical Department</label>
-                            <select class="form-control" name="department" id="treatmentMedicalDepartment">
-                                <option selected>Choose...</option>
-                                <option value="msh">Accident and emergency (A&E)</option>
-                                <option value="mpdhh">Anaesthetics</option>
-                                <option value="mkdahmrc">Cardiology</option>
-                                <option value="mdlhhh">Ear nose and throat (ENT)</option>
-                                <option value="mbsh">Gastroenterology</option>
-                                <option value="msh">Gynaecology</option>
-                                <option value="mpdhh">Nephrology</option>
-                                <option value="mkdahmrc">Neurology</option>
-                                <option value="mdlhhh">Oncology</option>
-                                <option value="mbsh">Urology</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="treatmentPreferableDoctor">Preferable Doctor</label>
-                                <select class="form-control" name="doctor" id="treatmentPreferableDoctor">
-                                    <option selected>Choose...</option>
-                                    <option value="msh">Dr. Dipinkor Nath Talukdar)</option>
-                                    <option value="mpdhh">DR. MCP(Giono)</option>
-                                    <option value="mkdahmrc">Dr. PDR (Artho)</option>
-                                    <option value="mdlhhh">Dr. SNS</option>
-                                    <option value="mbsh">Gastroenterology</option>
-                                    <option value="msh">Gynaecology</option>
-                                    <option value="mpdhh">Nephrology</option>
-                                    <option value="mkdahmrc">Neurology</option>
-                                    <option value="mdlhhh">Oncology</option>
-                                    <option value="mbsh">Urology</option>
-                                </select>
-                        </div>
-                    </div>
+                    
+                    
                     <div class="col-md-6">
                         <div class="form-group" >
                             <label for="from">Travel From</label>
@@ -230,13 +164,13 @@
                         </div>
                     </div>
                     <div id="tourTrainTicketYes" class="tourtrainticketdemo" style="display:none">
-                        <div class="col-md-3">
+                        <div class="col-md-6">
                             <div class="form-group">
                                 <label for="tt_number">Total Train Ticket</label>
                                 <input type="number" name="tt_number" class="form-control" id="tt_number" placeholder="Total Train Ticket" required>
                             </div>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-6">
                             <div class="form-group">
                                 <label for="tt_class">Train Ticket Class</label>
                                 <select id="trainclass" name="trainclass" class="form-control">

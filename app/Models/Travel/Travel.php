@@ -34,7 +34,5 @@ class Travel extends Model
     public function hotel(){
         return $this->belongsTo('App\Models\Hotel\Hotel', 'id', 'hotel_id');
     }
-
-
     
 }

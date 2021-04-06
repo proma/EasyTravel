@@ -50,8 +50,9 @@ Route::group([
     include_once 'admin/train.php';
     include_once 'admin/state.php';
     include_once 'admin/hotelcost.php';
+    include_once 'admin/registered.php';
+    include_once 'admin/customized.php';
 
-    
 });
 
 

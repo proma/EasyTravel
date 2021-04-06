@@ -15,7 +15,7 @@ use App\Models\Hotel\Hotel;
 use App\Models\HotelCost\HotelCost;
 use App\Models\Air\Air;
 use App\Models\Train\Train;
-use App\Models\Travel\Travel;
+use App\Models\Treatment\Treatment;
 use App\Models\Offer\Offer;
 use Auth;
 
@@ -90,7 +90,7 @@ class TreatmentController extends Controller
              'present_address'  =>  'required|string'
          ));
  
-         $treatment = new Travel();
+         $treatment = new Treatment();
  
          $treatment->name=$request->name;
          $treatment->user_id=Auth::user()->id;
@@ -100,12 +100,7 @@ class TreatmentController extends Controller
          $treatment->passport_number=$request->passport_number;
          $treatment->blood_group=$request->blood_group;
 
-
-         $treatment->state=$request->state;
-         $treatment->hospital=$request->hospital;
-         $treatment->department=$request->department;
-         $treatment->doctor=$request->doctor;
-
+         $treatment->hospital=$request->hospital_id;
 
          $treatment->traveler_number=$request->traveler_number;
          $treatment->from=$request->from;

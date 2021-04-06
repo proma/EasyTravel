@@ -9,10 +9,22 @@
                 </a>
             </li>
 
-            <li class="nav-item">
-                <a href="#" class="nav-link">
-                    <i class="fas fa-box-open"></i> Customers Offer
+            <li class="nav-item nav-dropdown">
+                <a href="#" class="nav-link nav-dropdown-toggle">
+                    <i class="fas fa-box-open"></i> Customers <i class="fa fa-caret-left"></i>
                 </a>
+                <ul class="nav-dropdown-items">
+                    <li class="nav-item">
+                        <a href="{{ route('admin.registered.index') }}" class="nav-link">
+                            <i class="fas fa-users"></i> Registered Offer
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('admin.customized.index') }}" class="nav-link">
+                            <i class="fab fa-intercom"></i> Customized Offer
+                        </a>
+                    </li>
+                </ul>
             </li>
 
             <li class="nav-item nav-dropdown">

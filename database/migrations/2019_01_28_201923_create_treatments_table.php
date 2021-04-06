@@ -28,11 +28,12 @@ class CreateTreatmentsTable extends Migration
             $table->string('present_address');
             $table->integer('traveler_number');
             $table->string('passport_number');
+            $table->integer('hospital');
 
-            $table->string('state');
-            $table->string('hospital');
-            $table->string('department');
-            $table->string('doctor');
+            //$table->integer('state');
+            
+            //$table->string('department');
+            //$table->string('doctor');
 
 
 
